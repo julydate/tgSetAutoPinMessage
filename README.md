@@ -1,0 +1,2 @@
+# tgSetAutoPinMessage
+Telegram 自动恢复群组被绑定频道更改的置顶消息
