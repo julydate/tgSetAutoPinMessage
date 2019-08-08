@@ -49,6 +49,10 @@ if(@$_GET['token'] === $token) {
 				$pinned_message_id = $pinned_message_json['message']['pinned_message']['message_id'];
 				$pinned_message_chat_id = $pinned_message_json['message']['pinned_message']['chat']['id'];
 				$callback = @file_get_contents("https://api.telegram.org/bot".$token."/pinChatMessage?chat_id=".$pinned_message_chat_id."&message_id=".$pinned_message_id."&disable_notification=true");
+				/*自动删除提示消息，message_id判断有问题，待解决*/
+				if($config_json[$chat_id]['is_auto_del'] === "on") {
+					$callback = @file_get_contents("https://api.telegram.org/bot".$token."/deleteMessage?chat_id=".$chat_id."&message_id=".++$message_id);
+				}
 			} else {
 				$callback = @file_get_contents("https://api.telegram.org/bot".$token."/unpinChatMessage?chat_id=".$chat_id);
 			}
