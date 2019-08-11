@@ -7,11 +7,13 @@ Telegram群组和频道绑定过后，频道发布的消息会自动同步到群
    
 使用命令如下（只有群组管理员可以进行更改，默认状态下为关闭）：
 ```
-setAutoPinMessage - 自动恢复置顶消息 on 为开启 off 为关闭
-setAutoDelPinMessage - 自动删除频道置顶消息 on 为开启 off 为关闭
+setautopinmessage - 自动恢复置顶消息 on 为开启 off 为关闭
+setautodelpinmessage - 自动删除频道置顶消息 on 为开启 off 为关闭
 ```
 设置 Telegram Bot WebHook:
 ```
 https://api.telegram.org/bot$token/setWebhook?url=https://example.com/channelBot.php?token=$token
 ```
-另外需要在本程序同目录下创建 channelbotconfig 文件夹，并在该文件夹里创建一个 config.json 文件
+另外需要在本程序同目录下创建 channelbotconfig 文件夹，并在该文件夹里创建一个 config.json 文件，并保证 PHP 对该目录可读写
+   
+> 注意：PHP 需要开启 fopen 函数
